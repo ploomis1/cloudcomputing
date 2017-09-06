@@ -1,0 +1,57 @@
+1.(defun AVERAGE (n1 n2 n3)
+   (if(and (typep n1 'integer) (typep n2 'integer) (typep n3 'integer))
+       (/ ( + n1 n2 n3) 3)
+       (write "error"))
+)
+
+2.(defun Quadratic (A B C)
+  (cond ((= A 0) (string "Not a quadratic equation."))
+    (t
+    (let ((D (- (* B B) (* 4 A C))))
+      (cond ((= D 0) (concatenate 'string "x = " (write-to-string (/ (+ (- B) (sqrt D)) (* 2 A)))))
+        (t
+        (values (concatenate 'string "x1 = " (write-to-string (/ (+ (- B) (sqrt D)) (* 2 A))))
+                (concatenate 'string "x2 = " (write-to-string (/ (- (- B) (sqrt D)) (* 2 A)))))))))))
+
+3.(defun QuadraticL (A B C)
+  (cond ((= A 0) (string "Not a quadratic equation."))
+    (t
+    (let ((D (- (* B B) (* 4 A C))))
+      (cond ((= D 0) (concatenate 'string "x = " (write-to-string (/ (+ (- B) (sqrt D)) (* 2 A)))))
+        (t
+        (values (concatenate 'string "x1 = " (write-to-string (/ (+ (- B) (sqrt D)) (* 2 A))))
+                (concatenate 'string "x2 = " (write-to-string (/ (- (- B) (sqrt D)) (* 2 A)))))))))))
+
+4.(defun EUCLIDEAN_NORM (first second)
+(norm first second))
+
+
+5.(defun MyFirst(first second)
+ (car first second)
+ )
+ (defun MyRest(first second)
+ (cdr first second)
+ )
+
+6.(defun count-atoms(l)
+  (cond
+    ((null l) 0)
+    (t (+ (cond
+            ((atom (car l)) 1)
+            (t 0))
+          (count-atoms (cdr l))))))
+
+7.(defun Replace_All (first second) (third fourth)
+
+(let ((x car '(first second)))
+(let ((y cdr '(first second)))
+(if (x (member first second))
+(replace x y)))
+
+8.(defun NON-MEMBER (first second)
+   (setq x (member first second))
+   (if (not x)
+    (return-from NON-MEMBER "True")
+    (return-from NON-MEMBER "False")
+   )
+)

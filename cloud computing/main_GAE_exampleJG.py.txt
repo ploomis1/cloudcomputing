@@ -1,0 +1,14 @@
+import webapp2
+import datetime
+
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/plain'
+        message = 'Hello Class. The time is: %s' % datetime.datetime.now()
+        self.response.out.write(message)
+
+
+app = webapp2.WSGIApplication([
+    ('/', MainPage),
+], debug=True)

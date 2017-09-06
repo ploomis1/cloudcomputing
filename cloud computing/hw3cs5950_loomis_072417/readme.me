@@ -1,0 +1,14 @@
+I created a VPC and called it HW4.1.
+Then I created a EC2 key pair and then creted the internet gateway and attacked it.
+Added a route to 0.0.0.0/0.
+Created a NAT and named it HW4.1,assigned to subnet.
+Added a new route table and then attached it, changed it to route to the NAT gateway0.0.0.0/0.
+
+
+Created a new Load Balancer with the required fields and had it return health checks that returns over HTTP 200
+Registered the Load Balancer.
+
+Created both instances.
+Set up a new NAT gateway and put it on public subnet and a new EIP.
+Created a new Route table with 0.0.0.0/0 in destination with above NAT.
+Changed inbound rules to range and ping google on instance.

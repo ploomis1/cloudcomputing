@@ -1,0 +1,849 @@
+1: Introduction
+Which of the following describes a physical location around the world where AWS clusters data centers?
+Region
+
+Each AWS region is composed of two or more locations that offer organizations the ability to operate production systems that are highly more available,
+fault tolerant, and scalable than would be possible using a single data center. What are these locations called?
+Availability Zones
+
+What is the deployment term for an environment that extends an existing on-premises infrastructure into the cloud to connect cloud resources to internal 
+systems?
+Hybrid deployment
+
+Which AWS Cloud service allows organizations to gain system-wide visibility into resource utilization, application performance, and operational health?
+Amazon CloudWatch
+
+Which of the following AWS Cloud services is a fully managed NoSQL database service?
+Amazon DynamoDB
+
+Your company experiences fluctuations in traffic patterns to theirt e-commerce website based on flash sales. What service can help your company dynamically
+match the required compute capacity to the spike in the traffic during flash sales?
+Auto Scaling
+
+Your company provides an online photo sharing service. The development team is looking for ways to deliver image files with the lowest latency to end users
+so the website content is delivered with the best possible performance. What service can help speed up distribution of these images files to end users around
+the world?
+Amazon CloundFront
+
+Your company runs and Amazon EC2 instance periodically to perform a batch processing job on a large and growing filesystem. At the end of the batch job, you
+shut down the Amazon EC2 instance to save money but need to persist the filesystem on the Amazon EC2 instance form the previous batch runs. What AWS Cloud
+service can you leverage to meet these requirement?
+Amazon Elastic Block Storage(Amazon EBS)
+
+What AWS Cloud service provides a logically isolated section of the AWS Cloud where organizations can launch AWS resources in a virtual network that they
+define?
+Amazon Virtual Private Cloud(Amazon VPC)
+
+Your company provides a mobile voting application for a popular TV show, and 5 to 25 million viewers all vote in a 15-second timespan. What mechanism can you use
+to decouple the voting application from your back-end services that tally the votes?
+Amazon Simple Queue Service(Amazon SQS)
+
+2: Amazon S3, Amazon Glacier Storage
+In what ways does Amazon S3 object storage differ from block and file storage?
+Objects contain both data and metadata
+Objects are stored in buckets
+
+Which of the following are not appropriate use cases for Amazon S3?
+Storing a file system mounted to an Amazon EC2 instance
+Primary Storage for a database
+
+What are some of the key characteristics of Amazon S3?
+All objects have a URL
+Amazon S3 can store unlimited amounts of data
+Amazon S3 uses a REST API
+
+Which features can be used to restrict access to Amazon S3 data?
+Create a pre-signed URL for an object
+Use an Amazon S3 ACL on a bucket or object
+Use an Amazon S3 bucket policy
+
+Your application stores critical data in Amazon S3, which must be protected against inadvertant or intentional deletion. How can this data be protected?
+Enable versioning
+Enable MFA Delete on a bucket
+
+Your company stores documents in Amazon S3, but it wants to minimize cost. Most documents are used actively for only about a month, then much less frequently.
+However all data needs to be available within minutes when requested. How can you meet these requirements?
+Migrate the data to Amazon S3 Standard-Infrequent Access after 30 days
+
+How is data stored in Amazon S3 for high durability?
+Data is automatically replicated within a region
+
+Based on the following URL, which one of the following statements is correct?
+The object "folderx/myfile.doc" is stored in the bucket "bucket1.abc.com"
+
+To have a record of who accessed your Amazon S3 data and from where, you should do what?
+Enable server access logs on the bucket
+
+What are some of the reasons to enable cross-region replication on an Amazon S3 bucket?
+You have a set of users or customers who can access the second bucket with lower latency
+For compliance reasons, you need to store data in a location at least 300 miles away from the first region
+
+Your company requires that all data sent to external storage be encrypted before being sent. Which Amazon S3 encryption solution will meet this requirement?
+Client-side encryption with customer-managed keys
+
+You have a popular web application that accesses data stored in an Amazon S3 bucket. You expect the access to be very read-intensive, with expected request
+rates of up to 500 GETs per second from many clients. How can you increase the performance and scalability of Amazon S3 in this case?
+Ensure randomness in the namespace by including a hash prefix to key namespace
+
+What is needed before you can enable cross-region replication on an Amazon S3 bucket?
+Enable Versioning
+Create an Aws Identity and Access Management policy
+
+Your company has 100TB of financial records that needs to be stored for seven years by law. Which of the following storage plans meets the needs?
+Store the data on Amazon S3 with lifecycle policies that change to Amazon Glacier after 1 year.
+
+Amazon S3 bucket policies can restrict access to an Amazon S3 bucket and objects by which of the following?
+IP address range
+AWS account
+Objects with a special prefix
+
+Amazon S3 is an eventually consistent storage system. For what kinds of operations is it possible to get stale data as a result of eventually consistency?
+GET or LIST after a Delete
+GET after overwrite PUT
+
+What must be done to host a static website in an Amazon S3 bucket?
+Configure the bucket for static hosting
+Create a bucket with the same name
+Make the objects in the bucket world-readable
+
+You have valuable media files hosted on AWS and want them to be served only to authenticated usersof your web application?
+Generate pre-signed URLs for content
+
+Amazon Glacier is well-suited to data that is which of the following?
+Is infrequently or rarely accessed
+Is available after a three-to-five hour restore periodically
+
+Which statements about Amazon Glacier are true?
+Amazon Glacier archives take three to five hours to restore
+Amazon Glacier vaults can be locked
+Amazon Glacier can be used as a standalone service
+
+3:Amazon EC2, Amazon EBS
+Your web application needs four instances to support steady traffic nearly all of the time?
+Run four reserved instanced constantly, then add eight on-demand instances on the last day of each month
+
+Your order processing application processes orders extracted from a queue with two Reserved Instances?
+Deploy additional spot instances to assist
+
+Which of the following must be specified when launching a new Windows instance?
+Instance type
+AMI
+
+You have purchased an m3.xlarge Linux Reserved Instance in us-east-1a. In which ways can you modify this reservation?
+Change it into two m3.large instances
+Move it to us-east-1b
+
+Your instance is associated with two security groups. The first allows RDP over port 3389?
+RDP traffic over port 3389
+
+Which of the following are features of enhanced networking?
+More packets per second
+lower latency
+less jitter
+
+You are creating a high performance computing cluster and need very low latency?
+Use an instance with 10 Gbps network performance
+Put the instances in a placement group
+Enable enhanced networking on the instances
+
+Which Amazon EC2 feature ensures that your instances will not share a physical host with another customer?
+Dedicated Instances
+
+Which of the following is true of instance stores?
+Data is lost when the instance stops
+Very high IOPS
+
+Which of the following are features of Amazon EBS?
+Data stored on Amazon EBS is automatically replicated
+Amazon EBS volumes can be encrypted transparently to workloads
+
+You need to take a snapshot of an Amazon EBS volume. How long will it be unavailable?
+The volume will be available immediately
+
+You are restoring an Amazon EBS volume from a snapshot. How long before the data will be available?
+The data will be available immediately
+
+You have a workload that requires 15,000 consistent IOPS?
+Use an Amazon EBS optimized instance
+Use a provisioned IOPS SSD volume
+
+Which of the following can be accomplished through bootstrapping?
+All of the above
+
+How can you connect to a new Linux instance using SSH?
+Use the private half of the instance's key pair
+
+VM Import/Export can import existing virtual machines as?
+AMIs
+Amazon EC2 instances
+
+Which of the following can be used to address an Amazon EC2 instance over the web?
+A public DNS name
+Elastic IP address
+
+Using the correctly decrypted Administrator password and RDP?
+There is no security group rule that allows RDP access over
+
+You ahve a workload that requires 1TB of durable block storage?
+Use a general-purpose SSD volume
+
+How are you billed for elastic IP addresses?
+Hourly when they are not associated with an instance
+
+4: Amazon VPC
+What is the minimum size subnet that you can have in an Amazon VPC?
+/28
+
+You are a solutions architect working for a large travel company?
+4
+
+Which of the following is an optional security control that can be applied at the subnet layer of a VPC?
+Network ACL
+
+What is the max size IP address range that you can have in an Amazon VPC?
+\16
+
+You create a new subnet and then add a route to your route table that routes traffic out from that subnet to the internet. What type of subnet?
+A public subnet
+
+What happens when you create a new Amazon VPC?
+A main route table is created by default
+
+You create a new VPC in US-East-1 and provision three subnets inside the Amazon VPC. Which of the following?
+All subnets will be able to communicate with each other by default.
+
+How many IGWs can you attach to an Amazon VPC at one time?
+1
+
+What aspect of an Amazon VPC is stateful?
+Security Groups
+
+You have created a custom Amazon VPC with both private and public subnets?
+You should disable source/destination checks on the NAT
+
+Which of the following will occur when an Amazon EBS backed EC2 instance is stopped?
+All data on the instance-stored devices will be lost
+The underlying host for the instance is changed
+
+How many VPC Peering connections are required for four VPCs located within the same AWS region?
+6
+
+Which of the following AWS resources would you use in order for an EC2 instance to resolve DNS names?
+A DHCP option set
+
+Which of the following is the Amazon side of an Amazon VPN connection?
+A VPG
+
+What is the default limit for the number of Amazon VPCs that a customer may have in a region?
+5
+
+You are responsible for your company's AWS resources, and you notice a significant amount of traffic?
+Network ACL
+
+Which of the following is the security protocol supported by Amazon VPC?
+IPsec
+
+Which of the following Amazon VPC resources would you use in order for EC2-VPC instances to send traffic directly to S3?
+VPC endpoint
+
+What properties of an Amazon VPC must be specified at the time of creation?
+The CIDR block
+The region for the VPC
+
+Which Amazon VPC feature allows you to create dual-homed instances?
+ENI
+
+5:ELB, CLoudWatch, Auto Scaling
+Which of the following are required elements of an Auto Scaling group?
+Minimum size
+Launch configuration
+
+You have created an ELB listening port on port 80, and you registered it with a single EC2 instance?
+2
+
+How long does Amazon CloudWatch keep metric data?
+2 weeks
+
+Which of the following are the minimum required elements to create an Auto Scaling launch config?
+Launch config name, AMI, and instance type
+
+You are responsible for the logging solution for your company's existing applications running on multiple EC2 instances?
+Amazon CloudWatch Logs Agent
+
+Which of the following must be configured on an ELB to accept incoming traffic?
+A listener
+
+You create an Auto Scaling group in a new region?
+You have not raised your default EC2 capacity for the new region
+
+You want to host multiple HTTPS websites on a fleet of EC2 instances?
+Create one SSL certificate with a SAN value for each website name
+
+Your web application front end consists of multiple EC2 instance behind an ELB?
+The load balancer stops sending traffic to the instance that failed its health checks
+
+In the basic monitoring package for EC2 what Amazon CloudWatch metrics are available?
+Hypervisor visible metrics
+
+A cell phone company is running a dynamic-content television commercials for a contest?
+Confgure Auto Scaling to scale out as traffic increases.
+
+For an application in the ap-northeast-1 region with three Availability Zones?
+Deploy the application on three servers in the ap-northeast-1a, three in 1b, three in 1c
+
+Which of the following are characteristics of the Auto Scaling service on AWS?
+Responds to changing conditions by adding or terminating EC2 instances
+Launches instances from a specified AMI
+Enforces a minimum number of running EC2 instances
+
+Why is the launch configuration referenced by the Auto Scaling group instead?
+All of the above
+
+An Auto Sclaing group may use?
+On-Demand Instances
+Spot Instances
+
+Amazon CloudWatch supports which types of monitoring plans?
+Basic which is free
+Dteailed, at an additional cost
+
+ELB health checks may be?
+A ping
+A connection attempt
+A page request
+
+When an EC2 instance registered with an ELB using connection draining is deregistered or unhealthywhat will happen?
+Keep the connections open to that instance
+Forcibly close all connections to that instance after a timeout period
+
+ELB supports which of the following types of load balancers?
+Internet-facing
+Internal
+HTTPS using SSL
+
+Auto Scaling supports which of the following plans for groups?
+Maunual
+Scheduled
+Dynamic
+
+6:AWS IAM
+Which of the following methods will allow an application using an AWS SDK to be authenticated as a principal to access AWS Cloud service?
+Create an IAM user and store both parts of the access key
+Run the application on an EC2 instance 
+
+Which of the following are found in an IAM policy?
+Service name
+Action
+
+Your AWS account adimn left your company today?
+Change the password and add MFA tot he root user
+Put an IP restriction
+Rotate Keys
+Delete the admins IAM account
+
+Which of the following actions can be authorized by IAM?
+Launching an EC2 instance
+Adding a message to an SQS queue
+
+Which of the following are IAM security features?
+Password policies
+MFA
+
+Which of the following are benefits of using EC2 roles?
+Credentials do not need to be stored
+Key rotation is not necessary
+
+Which of the following are based on temp security tokens?
+Amazon EC2 rolesFederation
+
+Your security team is very concerned?
+Add multi-factor authentication
+Implement a password policy
+Apply a source IP address conditions
+
+You want to grant individuals on your network team the ability to fully manipulate?
+Assign the managed policy 
+Create a new policy that grants EC2*
+
+What is the format of an IAM policy?
+JSON
+
+7:Databases and AWS
+Which AWS database service is best suited for traditional OLTP?
+Amazon Relational Database Service(RDS)
+
+Which AWS database service is best suited for non-relational databases?
+Amazon DynamoDB
+
+You are a solutions architect working for a media company that hosts its website on AWS. Currently?
+Recommend that the compant use reas replicas, and distribute the traffic across multiple read replicas.
+
+Which AWS Cloud service is best suited for OLAP?
+Amazon Redshirt
+
+You have been using Amazon Relational Database Service(RDS) for the last year to run an important application?
+Restore the datbase from a recent automated DB snapshot.
+
+Which Amazon RDS database enginessupport Multi-AZ?
+All of them
+
+Which Amazon RDS engines support read replicas?
+MySQL, Maria DB, PostgreSQL, and Aurora
+
+Your team is building an order processing system that will span multiple Availability Zones?
+Force a Multi-AZ failover from one Availability Zone to anothe rby rebooting the primary instance.
+
+You are a system admin whose company has moved its production database to AWS?
+No action is necessary. Your connection string points to the database endpoint.
+
+You are working for a small organization without dedicted database admin on staff?
+Launch an Amazon RDS DB Instance
+
+You are building the database tier for an enterprise application that gets occasional activity?
+General Purpose Solid State Drive
+
+You are designing an e-commerce web application that will scale to potentially hundreds of thousands of concurrent users?
+NoSQL database using table using Amazon DynamoDB
+
+Which of the following techniques can you use to help you meet Recovery Point Objective and Recovery Time Objective requirements?
+DB snapshots
+Read Replicas
+Multi-AZ deployment
+
+When using Amazon RDS, how can you offload read requests from the primary?
+Add a read replica DB instance, and configure the client's application
+Create a caching environment using Elasticache
+
+You are building a large order processing system and are responsible for securing the database. What actions will you take to secure the data?
+Adjust AWS Identity and Access Management permissions for admins
+Configure security groups and networks Access Control Lists to limit network access
+Configure database users, and grant permissions to database objects
+
+Your team manages a popular website running Amazon RDS MySQL backend. The MArketing department has just?
+Vertically scale the DB
+Create read replicas
+Upgrade the storage
+
+You are building a photo management application that maintains metadata?
+Query Operation
+
+You are creating an Amazon DynamoDB table that will contain messages for a social chat application. This table will have the following attributes:?
+Username, Timestamp
+
+Which of the following statements about Amazon DynamoDB tables are true?
+Local secondary idexes can be created when the table is being created.
+You can only have one local secondary index
+
+Which of the following workloads are a good fit for running on Amazon Redshift?
+Reporting database supporting back office analytics
+Data warehouse used to aggregate multiple disparate data sources
+
+8:SQS, SWF, SNS
+Which of the following is not a Supported Amazon SNS protocol?
+Amazon DynamoDB
+
+When you create a new Amazon SNS topic, which of the following is created automatically?
+An Amazon Resource Name(ARN)
+
+Which of the following are features of the Amazon SNS?
+Publishers
+Subscribers
+Topic
+
+What is the default time for an Amazon SQS visibility timeout?
+30 seconds
+
+What is the longest time available for an Amazon SQS visibility timeout?
+12 hours
+
+Which of the following options are valid properties of an Amazon SQS message?
+Message ID
+Body
+
+You are a solutions architect who is working for a mobile application company that wants to use Amazon SWF for their new takeout ordering application?
+Use a single domain containing multiple workflows. In this manner, the workflows will be able to interact
+
+In Amazon SWF, which of the following are actors?
+Activity workers
+Workflow Starters
+Deciders
+
+You are designing a new application, and you need to ensure that the components of your application are not tightly coupled?
+Amazon SWF
+
+How does Amazon SQS deliver messages?
+Amazon SQS doesn't guarantee delivery in any particular order
+
+Of the following options, what is the effecient way to fanout a single Amazon SNS message to multiple queues?
+Create an Amazon SNS topic. Then create and subscribe multiple queues sent to the topic
+
+Your application polls an Amazon SQS queue frequently and returns immediately?
+Use long polling by supplying a WaitTime Seconds of greater than 0 when calling receive message
+
+What is the longest time available for an Amazon SQS long polling timeout?
+20 seconds
+
+What is th elongest configuarble message retention period for Amazon SQS?
+14 days
+
+What is the default message retention period for Amazon SQS?
+4 days
+
+Amazon SNS is a puch notification service that lets you send individual?
+Publisher and subscriber client types
+
+In Amazon SWF a decider is responsible for what?
+Defining work coordination logic by specifying work sequencing
+
+Can an Amazon SNS topic be created with a previously used topic name?
+Yes. The topic name should typically be available after 30-60 seconds after the previous topic has been deleted.
+
+What should you do in order to grant a different AWS account permission to your Amazon SQS queue?
+Create an Amazon SQS policy that grants the other accoutn access
+
+Can an Amazon SNS message be deleted after being published?
+No. After a message has been published to a topic, it cannot be recalled.
+
+
+9:DNS, Amazon Route 53
+Which type of record is commonly used to route traffic to IPv6?
+AAAA record
+
+Where do you register a domain name?
+with a domain registrar
+
+You have an application that for legal reasons must be hosted in the United States when US citizens access it?
+geolocation routing
+
+Which type od DNS record should you use to resolve an IP address to a domain name?
+A PTR record
+
+You host a web application across multiple AWS regions in the world, and you need to configure DNS?
+Latency based routing 
+
+Which DNS record should you use to configure the transmission of email to your intended mail service?
+SOA record
+
+Which DNS records are commonly used to stop email spoofing and spam?
+SPF records
+
+You are rolling out A and B test versions of a web application?
+weighted routing
+
+Which DNS record must all zones have by default?
+SOA
+
+Your company has it's primary production site in Western Europe and its DR site in the Asia Pacific?
+Failover routing
+
+Which type od DNS record should you use to resolve a domain name to another domain name?
+A CNAME record
+
+Which is a function that Amazon Route 53 does not perform?
+Load balancing
+
+Which DNS record can be used to store human-readable information about a server, network, and other accounting data?
+A TXT record
+
+Which resource record set would not be allowed for the hosted zone example.com?
+www.example.ca
+
+Which port number is used to serve requests by DNS?
+53
+
+Which protocol is primarily used by DNS to serve requests?
+UDP
+
+Which protocol is used by DNS when response data size exceeds 512 bytes?
+TCP
+
+What are the different hosted zones that can be created in Amazon Route 53?
+Public Hosted
+Private Hosted
+
+Amazon Route 53 cannot route queries to which AWS resource?
+AWS OpsWorks
+
+When configuring Amazon ROute 53 as your DNS service for an existing domain, which is the first step?
+Transfer domain registration
+
+10:Elasticache
+Which of the following objects are good candidates to store in a cache?
+Session State
+Shopping Cart
+Product Catalog
+
+Which of the following cache engines are supported by Amazon Elasticache?
+MemCached
+Redis
+
+How many nodes can you add to an Elasticache cluster running Memcached?
+20
+
+How many nodes can you add to an Elasticache cluster running Redis?
+1
+
+An application currently uses MemCached to cache frequently used database queries?
+Update the configuration
+configure a security group
+
+How can you back up data stored in Amazon Elasticache running Redis?
+Configure automatic snapshots
+create a snapshot manually
+
+How can you secure an Amazon Elasticache cluster?
+Restrict API actions
+Restrict network access using security
+Restrict network access using ACL
+
+Yu are working on a mobile gaming application and are building the leaderboard?
+Elasticache using Redis
+
+You have built a large web application that uses Amazon Elasticache using Memcached to store frequent query results?
+Configure Autodiscovery client side
+
+11:Additional Key Services
+What origin servers are supported by Amazon CloudFront?
+An Amazon S3
+An HTTP Server
+An HTTP servee
+
+Which of the following are good use cases for Amazon CloudFront?
+A popular software download site
+A heavily used video and music
+
+You have a web application that contains both static content in an Amazon S3 bucket, and also dynamic content curretly served by a PHP web app?
+Multiple origins
+Mulitple cache behaviors
+
+You are building a media-sharing web application that serves video files to end users?
+Use an Amazon CloudFront OAI
+
+Your company data center is completely full, but the sales group has determineda need to store 200TB of product video?
+AWS Storage Gateway Gateway-Cached volumes
+
+Your company wants to extend their existing Microsoft Active Directory capability into an Amazon VPC?
+Create and connect an AWS Directory SD
+
+Which of the following are AWS Key Management Service Keys that will never exit AWS unencrypted?
+AWS KMS Customer Master Keys
+
+What cryptographic method is used by AWS KMS to encrypt data?
+Envelope encryption
+
+Which AWS service records API calls made on your account?
+AWS CloudTrail
+
+You are trying to decrypt ciphertext with AWS KMS and the decryption operation is failing?
+The plaintext
+The ciphertext
+
+Your comapny has 30 years of financial records that take up 15TB of on-premises Storage?
+AWS Import/Export to Amazon Glacier
+
+Your company collects information from the oint of sale registers at all of it's franchise locations?
+Run a transient
+
+Which service allows you to process nearly limitless streams of data in flight?
+Amazon Kinesis
+
+What combination of services enable you to copy daily 50TB of data to Amazon storage, process the data in Hadoop?
+Amazon S3, Data Pipeline, EMR, Redshift
+
+Your company has 50,000 weather stations around the country that send updates every 2 seconds?
+Amazon Kinesis Firehose
+
+Your organization uses Chef heavily for it's deployment automation?
+AWS OpWorks
+
+A firm is moving its testing platform to AWS to provide developers with instant access?
+AWS CloudFormation
+
+Your company's IT management team is looking for an online tool to provide recommendations to save money, imporve system stability?
+AWS Trusted Advisor
+
+Your company works with data that requires frequent audits?
+AWS Config
+
+All of the website deployments are currently done by your company's deployment team. With a surge in website popularity?
+AWS Elastic Beanstalk
+
+12:Security
+Which is an operation performed by AWS dor data security?
+Decomissioning of storage devices using industry-standard practices
+
+You have launched a Windows Amazon EC2 instance and specified an Amazon EC2 key pair for the instance at launch?
+Use the Amazon EC2 key pair to decrypt the administrator password
+
+A database security group controls network access?
+No access is provided by default
+
+Which encryption algorithm is used by Amazon S3 to encrypt data?
+AES-256
+
+How many access keys may an AWS IAM user have active at one time?
+2
+
+Which of the following is the name of the security model employed?
+The shared responsibility model
+
+Which of the following describes the scheme used by an Amazon Redshift cluster leveraging?
+Amazon Redshit used a four-tier
+
+Which of the following ELB options ensure that the load balancer determines which cipher is used?
+Server Order preference
+
+Which technology does Amazon Workspaces use to provide data secrecy?
+PC-over-IP
+
+As a solutions Architect, how should you architect systems on AWS?
+You should architect yous AWS usage to take advantage of multiple Availability Zones and regions.
+
+Which security theme is used by the AWS MFA?
+Time-based One-time password
+
+DynamoDB tables may contain sensitive data that needs to be protected?
+DynamoDb can store data encrypted with a client-side 
+DynamoDB can be used with the AWS Key Management Service
+
+You have launched an Amazon Linuzz EC2 instance in EC2-classic?
+The permissions for the private key are too insecure for the key to be trusted
+
+Which of the following public identity providers?
+All of the above
+
+Which feature of AWS is designed to permit calls to the platform from an Amazon EC2 instance without?
+AWS IAM instance profile
+
+Which of the following Amazon VPC elements acts as a firewall?
+ACL
+
+Which of the following is the most recent version of AWS digital signature?
+Version 4
+
+Which of the following is the name of the feature with Amazon VPC that allows you to launch EC2 instances?
+Dedicated tenany
+
+Which of the following best describes how Amazon EMR protects access?
+The master node is launched into a security group that allows SSH
+
+To help prevent data loss due to the failure of any single hardware component?
+Amazon EBS replictes EBS volume data within the same Availability zone in a region.
+
+13:Risk and Compliance
+AWS communicates with customers regarding its security and control?
+Obtaining industry certs
+Publishing information
+Directly providing customers
+
+Which of the following statements is true when it comes to shared resposibility model?
+The shared responsibility model is not just limited to csecurity considerations, IT controls too
+
+AWS provides IT control information to customers in which?
+By using specific control definitions or through general control standard compliance
+
+Which of the following is a valid report, certification, or third party attestation?
+SOC1
+PCI DSS Lev 1
+ISO 27001
+
+Which of the following statements is true?
+IT governance is still the customer's resposibility
+
+Which of the following statements is true when it comes to the risk and compliance advantages?
+Few, many, or all components
+
+Which of the following best describes an Availability Zone?
+Each AZ consists of multiple discrete data centers, with redundant power
+
+With regard to vulnerability scans and threat assessments?
+AWS regularly
+AWS security notifies
+
+Which of the following best describes the risk and compliance communication responsibilities?
+AWS publishes information about the AWS security
+
+When it comes to risk management, which is true?
+AWS has developed a strategic business plan to identify any risks and has implemented controls to mitigate or manage
+
+The AWS control environment is in place for the secure delivery of AWS Cloud?
+Energy
+
+Who is responsible for the configuration of security groups in an AWS?
+AWS provides security group functionality, but the customer is responsible
+
+Which of the following is NOT a recommended aproach?
+Implement generic control objectives that are not specifically designed
+
+14:Best Practices
+When designing a loosely coupled system, which AWS services provide an intermediate durable storage layer?
+Kinesis
+SQS
+
+Which of the following options will help increase the vailability of a web server farm?
+Launch the web server instances
+Leverage Auto Scaling
+
+Which of the following AWS Cloud services are designed according to the Multi-AZ principle?
+DynamoDB
+S3
+
+Your e-commerce site was designed to be stateless and currently runs on a fleet of Amazon EC2 instances?
+CloudWatch
+Auto Scaling
+
+Your compliance department has mandated a new requirement that all data on Amazon EBS volumes must be encrypted. Which of the following steps?
+Create a new EBS
+Attach the EBS volume
+Copy the data
+
+When building a DDos-resilient architecture?
+Reduces
+Obfuscates
+Adds non-critical
+
+Your e-commerce application provides daily ad hoc reporting to various business units?
+Create a read replica
+
+Your website is hosted on a fleet of web servers that are load balanced across multiple Availability Zones?
+Type A Alias
+
+You need a secure way to distribute your AWS credentials to an application running on Amazon EC2?
+Provision the Amazon EC2
+
+You are running a suite of microservices on AWS Lambda?
+API GAteway
+
+Your WordPress website is hosted on a fleet of Amazon EC2 instances that leverage Auto Scaling?
+EFS
+
+You are changing your application to move session sate information off the individual EC2 instances?
+Amazon DynamoDB
+
+A media sharing application is producing a very high volume of data in a very short period of time?
+Use the Amazon SQS
+
+Which of the following are best practices for managing AWS IAM user access keys?
+Use different Access keys
+Rotate access keys
+Configure MFA
+
+You need to implement a service to scan API calls and related events history to your AWS account?
+AWS CloudTrail
+S3
+AWS Lambda
+
+Government regulations require that your company maintain all correspondence for a period of seven years?
+Amazon Glacier
+
+Your company provides media content via the Internet to customers through a paid subscription model?
+Provided signed Amazon CloudFront
+
+Your compnay provides transcoding services for amateur products to formattheir short films?
+Amazon S3
+
+A week before Cyber Monday last year, your corporate data center experiences a failed air conditioning unit?
+Distribute the architecture
+
+Your Amazon VPC includes multiple private subnets. The instances in these privat esubnets must access?
+Create a NAT gateway in each Availability

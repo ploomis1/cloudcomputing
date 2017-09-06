@@ -1,0 +1,41 @@
+Part1
+created security group called hw5 with SQL permissions
+created RDS database(free tier)
+created an EC2 instance called hw5 with that security group
+connected to instance and downloaded mysql onto it
+logged into database from instance and created a table
+table has 4 fields of id, first name, last name, and admin
+Created a java program
+Wrote a program to connect to database and add users to table
+added users and ran a select statement to show users
+
+
+Part2
+Created an Ubuntu instance and named it HTTP-A
+created a security group and named it HTTP-Server
+ran sudo bash
+ran apt update, upgrade, and then installed apache2
+ran echo A > /var/www/html/index.html,echo healthy > /var/www/html/status.html
+powered off from command line
+Created an image of HTTP-A with name HTTP
+Went to AMI and launched it, and named it HTTP-B
+Ran echo B > /var/www/html/index.html in sudo bash
+Created Load Balancer and used same security group as instances
+Named HTTP-Load_Balancer
+updated [1]  Path: /status.html
+[2]  Response Timeout: 2
+[3]  Interval: 5
+[4]  Unhealthy threshold: 2
+[5]  Healthy threshold: 2
+
+selected both a and b instances
+created load balancer
+
+connected to HTTP-B and ran sudo rm
+this made the instancae out of service on the load balancer
+ran sudo bash -c 'echo healthy > /var/www/html/status.html to make it in service again
+
+Went to the elb description tag and clicked edit stickiness
+Enabled load balancer generated cookie stickiness
+Changed experation to 60 seconds
+refreshed to elb url and watched the delay of the instances.
